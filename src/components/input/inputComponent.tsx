@@ -1,33 +1,29 @@
 import { useState } from "react";
+import { useAppContext } from "../../context/Appcontext";
 
-interface InputProps {
-    onValueChange: (value: number | null) => void;
-  }
-export const InputComponent: React.FC<InputProps> = ({onValueChange})=>{ 
-    const [value,setValue]= useState<string>("");
+
+export const InputComponent= ()=>{ 
+    const {setValue} = useAppContext();
+    const [inputValue,setInputValue]= useState<string>("");
     const [isvalid,setIsvalid]= useState<boolean>(true);
 
- 
-    // Función para manejar el cambio en el input
+  
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newvalue = event.target.value;
-        const valid = !isNaN(Number(newvalue)); // Validamos si es un número
-        const numericValue = Number(newvalue);
+        const valid = !isNaN(Number(newvalue)); 
+    
 
         setIsvalid(valid);
-        setValue(newvalue);
-        if (valid) {
-            onValueChange(numericValue);
-          } else {
-            onValueChange(null);
-          }
-    };
+        setInputValue(newvalue);
+        setValue(valid ? Number(newvalue):null);
+    }
     
-    // Función para resetear el input
+  
     const resetInput = () => {
        
         setIsvalid(true)
-        setValue("");
+        setInputValue("");
+        setValue(null);
     };
 
     return (
@@ -36,7 +32,7 @@ export const InputComponent: React.FC<InputProps> = ({onValueChange})=>{
                 <input type="text" 
                        className={`form-control ${!isvalid ? "is-invalid":""}`}  
                        placeholder="Type your Number" 
-                       value={value}
+                       value={inputValue}
                        onChange={handleChange}
                 />
                 <div className="input-group-append">

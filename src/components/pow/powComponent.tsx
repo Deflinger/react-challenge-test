@@ -1,8 +1,7 @@
-interface PowProps {
-    value: number | null;
-}
+import { useAppContext } from "../../context/Appcontext";
 
-export const PowComponent: React.FC<PowProps> = ({value})=> {
+export const PowComponent = ()=> {
+    const {value}= useAppContext(); 
 
     if (value === null || isNaN(value)) {
         return null;

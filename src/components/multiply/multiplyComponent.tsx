@@ -1,8 +1,9 @@
-interface MultiplyProps {
-    value: number | null;
-}
-export const MultiplyComponent : React.FC<MultiplyProps> = ({value}) => {
+import { useAppContext } from "../../context/Appcontext";
 
+
+export const MultiplyComponent= () => {
+    const {value}= useAppContext();
+    
     if (value === null || isNaN(value)) {
         return null;
     }

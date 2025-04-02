@@ -1,13 +1,13 @@
+import { useAppContext } from "../../context/Appcontext";
 
-interface DateProps{
-    timeStamp: number | null;
-}
 
-export const DateComponent:React.FC<DateProps> = ({timeStamp}) => {
-    if( timeStamp === null || isNaN(timeStamp)){
+export const DateComponent = () => {
+    const {value}= useAppContext();
+
+    if( value === null || isNaN(value)){
         return null;
     }
-    const date = new Date(timeStamp*1000000);
+    const date = new Date(value*1000000);
     const FormattedDate  =date.toLocaleDateString("en-CA",{
         year: "numeric",
         month: "2-digit",
