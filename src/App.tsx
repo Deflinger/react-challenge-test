@@ -21,6 +21,7 @@ function App() {
 
       </div>
       <h1>Vite + React</h1>
+
       <div className='container'>
         <div className='row justify-content-center'>
           <div className='col-8'>
@@ -29,8 +30,7 @@ function App() {
         </div>
       </div>
       
-      <div className='container'>
-        <div className='row'>
+      <div className='d-flex justify-content-aroundcontainer'>
           <div className='col-4'>
           <DateComponent/>
           </div>
@@ -40,8 +40,6 @@ function App() {
           <div className='col-4'>
           <PowComponent/>
           </div>
-        </div>
-
       </div>
       
       <div className="card">
