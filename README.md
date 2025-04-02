@@ -55,7 +55,7 @@ Receives the numeric value emitted by the InputComponent.
 
 If the value is not a number, the component does not render.
 
-Converts the received value to a date using Unix timestamp (value \* 1000).
+Converts the received value to a date using Unix timestamp (value \* 1000000).
 
 Displays the date in the format YYYY/MM/DD HH:MM.
 

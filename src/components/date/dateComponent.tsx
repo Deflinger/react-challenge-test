@@ -7,7 +7,7 @@ export const DateComponent:React.FC<DateProps> = ({timeStamp}) => {
     if( timeStamp === null || isNaN(timeStamp)){
         return null;
     }
-    const date = new Date(timeStamp*1000);
+    const date = new Date(timeStamp*1000000);
     const FormattedDate  =date.toLocaleDateString("en-CA",{
         year: "numeric",
         month: "2-digit",
