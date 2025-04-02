@@ -1,54 +1,103 @@
-# React + TypeScript + Vite
+React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project provides a minimal setup to get React working with Vite, TypeScript, and Bootstrap.
 
-Currently, two official plugins are available:
+Available Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+In the project directory, you can run:
 
-## Expanding the ESLint configuration
+npm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Runs the app in the development mode.
+Open http://localhost:5173 to view it in the browser.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+The page will reload if you make edits. You will also see any lint errors in the console.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Project Overview
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project consists of four primary components:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. Input Component
+
+Captures and validates user input.
+
+Ensures that only numeric values are accepted.
+
+If a non-numeric value is entered:
+
+Adds is-invalid class to the input.
+
+Displays an error message.
+
+Includes a "Reset" button that clears the input and removes validation errors.
+
+Emits the valid number to other components.
+
+2. Multiply Component
+
+Receives the numeric value emitted by the InputComponent.
+
+If the value is not a number, the component does not render.
+
+Multiplies the received value by 2 (n \* 2) and displays it.
+
+3. Pow Component
+
+Receives the numeric value emitted by the InputComponent.
+
+If the value is not a number, the component does not render.
+
+Raises the received value to the power of itself (n^n) and displays it.
+
+4. Date Component
+
+Receives the numeric value emitted by the InputComponent.
+
+If the value is not a number, the component does not render.
+
+Converts the received value to a date using Unix timestamp (value \* 1000).
+
+Displays the date in the format YYYY/MM/DD HH:MM.
+
+Installation
+
+1. Clone the repository:
+
+git clone <repository-url>
+cd <project-directory>
+
+2. Install dependencies:
+
+npm install
+
+3. Start the development server:
+
+npm run dev
+
+Technologies Used
+
+React
+
+TypeScript
+
+Vite
+
+Bootstrap
+
+Project Structure
+
+/src
+├── components
+│ ├── InputComponent.tsx
+│ ├── MultiplyComponent.tsx
+│ ├── PowComponent.tsx
+│ ├── DateComponent.tsx
+├── App.tsx
+├── main.tsx
+├── index.css
+
+License
+
+This project is licensed under the MIT License.
+
+Feel free to contribute by improving components or optimizing the logic! 🚀

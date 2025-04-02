@@ -7,7 +7,7 @@ import { DateComponent, MultiplyComponent, PowComponent } from './components';
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const [value, setValue] = useState<number | null>(null);
   return (
     <>
       <div>
@@ -25,20 +25,20 @@ function App() {
       <div className='container'>
         <div className='row justify-content-center'>
           <div className='col-8'>
-          <InputComponent/>
+          <InputComponent onValueChange={setValue}/>
           </div>
         </div>
       </div>
       
       <div className='d-flex justify-content-aroundcontainer'>
           <div className='col-4'>
-          <DateComponent/>
+          <DateComponent timeStamp={value}/>
           </div>
           <div className='col-4'>
-          <MultiplyComponent/>
+          <MultiplyComponent value={value}/>
           </div>
           <div className='col-4'>
-          <PowComponent/>
+          <PowComponent value={value}/>
           </div>
       </div>
       
